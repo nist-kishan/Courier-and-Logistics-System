@@ -1,0 +1,164 @@
+{
+  "info": {
+    "name": "Tracking History API Collection",
+    "_postman_id": "a1b2c3d4-e5f6-7890-abcd-1234567890ef",
+    "description": "Tracking History API Test Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Tracking Histories",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history"
+      }
+    },
+    {
+      "name": "Get Tracking History By Id",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/1"
+      }
+    },
+    {
+      "name": "Get Tracking History By Tracking Number",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/tracking-number/1001"
+      }
+    },
+    {
+      "name": "Get Tracking Histories By Pending Status",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/status/PENDING"
+      }
+    },
+    {
+      "name": "Get Tracking Histories By In Transit Status",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/status/IN_TRANSIT"
+      }
+    },
+    {
+      "name": "Get Tracking Histories By Delivered Status",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/status/DELIVERED"
+      }
+    },
+    {
+      "name": "Get Tracking Histories By Cancelled Status",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/status/CANCELLED"
+      }
+    },
+    {
+      "name": "Tracking History Not Found By Id Test",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/99999"
+      }
+    },
+    {
+      "name": "Tracking History Not Found By Tracking Number Test",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/tracking-number/99999"
+      }
+    },
+    {
+      "name": "Tracking History Not Found By Status Test",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/status/RETURNED"
+      }
+    },
+    {
+      "name": "Invalid Delivery Status Test",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/status/INVALID_STATUS"
+      }
+    },
+    {
+      "name": "Lower Case Delivery Status Test",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/status/delivered"
+      }
+    },
+    {
+      "name": "Mixed Case Delivery Status Test",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/status/Delivered"
+      }
+    },
+    {
+      "name": "Numeric Delivery Status Test",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/status/123"
+      }
+    },
+    {
+      "name": "Special Character Delivery Status Test",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/status/@#$%"
+      }
+    },
+    {
+      "name": "Empty Delivery Status Test",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/status/"
+      }
+    },
+    {
+      "name": "Negative Tracking History Id Test",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/-1"
+      }
+    },
+    {
+      "name": "Zero Tracking History Id Test",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/0"
+      }
+    },
+    {
+      "name": "Large Tracking History Id Test",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/999999999"
+      }
+    },
+    {
+      "name": "Negative Tracking Number Test",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/tracking-number/-100"
+      }
+    },
+    {
+      "name": "Zero Tracking Number Test",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/tracking-number/0"
+      }
+    },
+    {
+      "name": "Large Tracking Number Test",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking-history/tracking-number/999999999"
+      }
+    }
+  ]
+}

@@ -1,0 +1,371 @@
+{
+	"info": {
+		"name": "Shipment API Collection",
+		"_postman_id": "b7d4c9a2-1234-5678-90ab-cdef12345678",
+		"description": "Shipment API Test Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Shipment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"source\": \"Bangalore\",\n  \"destination\": \"Hyderabad\",\n  \"weight\": 10.5,\n  \"customer\": {\n    \"customerId\": 1\n  },\n  \"payment\": {},\n  \"warehouse\": {\n    \"warehouseId\": 1\n  },\n  \"trackingHistory\": {},\n  \"packageEntity\": {\n    \"fragile\": true,\n    \"dimension\": {\n      \"length\": 20,\n      \"width\": 15,\n      \"height\": 10\n    }\n  }\n}"
+				},
+				"url": "{{baseUrl}}/shipments"
+			}
+		},
+		{
+			"name": "Get All Shipments",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/shipments"
+			}
+		},
+		{
+			"name": "Get Shipment By Id",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/shipments/1"
+			}
+		},
+		{
+			"name": "Get Shipment By Tracking Number",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/shipments/tracking/1001"
+			}
+		},
+		{
+			"name": "Get Shipments By Customer",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/shipments/customer/1"
+			}
+		},
+		{
+			"name": "Get Shipments By Delivery Agent",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/shipments/delivery-agent/1"
+			}
+		},
+		{
+			"name": "Get Shipments By Delivery Date",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/shipments/delivery-date/2026-07-13"
+			}
+		},
+		{
+			"name": "Get Shipments By Pagination And Sorting",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/shipments/pagination?currentPage=0&pageSize=5&fieldName=shipmentId&direction=asc"
+			}
+		},
+		{
+			"name": "Get Shipments By Source And Availability",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/shipments/source/Bangalore/availability/true"
+			}
+		},
+		{
+			"name": "Assign Delivery Agent",
+			"request": {
+				"method": "PATCH",
+				"url": "{{baseUrl}}/shipments/1/assign-delivery-agent/1"
+			}
+		},
+		{
+			"name": "Assign Warehouse",
+			"request": {
+				"method": "PATCH",
+				"url": "{{baseUrl}}/shipments/1/assign-warehouse/1"
+			}
+		},
+		{
+			"name": "Update Payment Status",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"paymentStatus\": \"COMPLETED\"\n}"
+				},
+				"url": "{{baseUrl}}/shipments/1/status"
+			}
+		},
+		{
+			"name": "Update Delivery Status",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"deliveryStatus\": \"IN_TRANSIT\"\n}"
+				},
+				"url": "{{baseUrl}}/shipments/1/status"
+			}
+		},
+		{
+			"name": "Update Both Statuses",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"paymentStatus\": \"COMPLETED\",\n  \"deliveryStatus\": \"DELIVERED\"\n}"
+				},
+				"url": "{{baseUrl}}/shipments/1/status"
+			}
+		},
+		{
+			"name": "Shipment Not Found By Id Test",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/shipments/99999"
+			}
+		},
+		{
+			"name": "Shipment Not Found By Tracking Number Test",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/shipments/tracking/99999"
+			}
+		},
+		{
+			"name": "Customer Shipment Not Found Test",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/shipments/customer/99999"
+			}
+		},
+		{
+			"name": "Delivery Agent Shipment Not Found Test",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/shipments/delivery-agent/99999"
+			}
+		},
+		{
+			"name": "Delivery Date Shipment Not Found Test",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/shipments/delivery-date/2035-01-01"
+			}
+		},
+		{
+			"name": "Source Availability Shipment Not Found Test",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/shipments/source/UnknownCity/availability/true"
+			}
+		},
+		{
+			"name": "Assign Invalid Delivery Agent Test",
+			"request": {
+				"method": "PATCH",
+				"url": "{{baseUrl}}/shipments/1/assign-delivery-agent/99999"
+			}
+		},
+		{
+			"name": "Assign Invalid Warehouse Test",
+			"request": {
+				"method": "PATCH",
+				"url": "{{baseUrl}}/shipments/1/assign-warehouse/99999"
+			}
+		},
+		{
+			"name": "Assign Delivery Agent To Invalid Shipment Test",
+			"request": {
+				"method": "PATCH",
+				"url": "{{baseUrl}}/shipments/99999/assign-delivery-agent/1"
+			}
+		},
+		{
+			"name": "Assign Warehouse To Invalid Shipment Test",
+			"request": {
+				"method": "PATCH",
+				"url": "{{baseUrl}}/shipments/99999/assign-warehouse/1"
+			}
+		},
+		{
+			"name": "Invalid Payment Status Test",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"paymentStatus\": \"INVALID_STATUS\"\n}"
+				},
+				"url": "{{baseUrl}}/shipments/1/status"
+			}
+		},
+		{
+			"name": "Invalid Delivery Status Test",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"deliveryStatus\": \"INVALID_STATUS\"\n}"
+				},
+				"url": "{{baseUrl}}/shipments/1/status"
+			}
+		},
+		{
+			"name": "Invalid Field Status Update Test",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"shipmentStatus\": \"DELIVERED\"\n}"
+				},
+				"url": "{{baseUrl}}/shipments/1/status"
+			}
+		},
+		{
+			"name": "Empty Status Update Test",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"url": "{{baseUrl}}/shipments/1/status"
+			}
+		},
+		{
+			"name": "Missing Customer Test",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"source\": \"Bangalore\",\n  \"destination\": \"Hyderabad\",\n  \"weight\": 10,\n  \"payment\": {},\n  \"warehouse\": {\n    \"warehouseId\": 1\n  },\n  \"trackingHistory\": {},\n  \"packageEntity\": {\n    \"fragile\": false,\n    \"dimension\": {\n      \"length\": 10,\n      \"width\": 10,\n      \"height\": 10\n    }\n  }\n}"
+				},
+				"url": "{{baseUrl}}/shipments"
+			}
+		},
+		{
+			"name": "Same Source And Destination Test",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"source\": \"Bangalore\",\n  \"destination\": \"Bangalore\",\n  \"weight\": 10,\n  \"customer\": {\n    \"customerId\": 1\n  },\n  \"payment\": {},\n  \"warehouse\": {\n    \"warehouseId\": 1\n  },\n  \"trackingHistory\": {},\n  \"packageEntity\": {\n    \"fragile\": false,\n    \"dimension\": {\n      \"length\": 10,\n      \"width\": 10,\n      \"height\": 10\n    }\n  }\n}"
+				},
+				"url": "{{baseUrl}}/shipments"
+			}
+		},
+		{
+			"name": "Invalid Weight Test",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"source\": \"Bangalore\",\n  \"destination\": \"Hyderabad\",\n  \"weight\": 0,\n  \"customer\": {\n    \"customerId\": 1\n  },\n  \"payment\": {},\n  \"warehouse\": {\n    \"warehouseId\": 1\n  },\n  \"trackingHistory\": {},\n  \"packageEntity\": {\n    \"fragile\": false,\n    \"dimension\": {\n      \"length\": 10,\n      \"width\": 10,\n      \"height\": 10\n    }\n  }\n}"
+				},
+				"url": "{{baseUrl}}/shipments"
+			}
+		},
+		{
+			"name": "Missing Package Entity Test",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"source\": \"Bangalore\",\n  \"destination\": \"Hyderabad\",\n  \"weight\": 10,\n  \"customer\": {\n    \"customerId\": 1\n  },\n  \"payment\": {},\n  \"warehouse\": {\n    \"warehouseId\": 1\n  },\n  \"trackingHistory\": {}\n}"
+				},
+				"url": "{{baseUrl}}/shipments"
+			}
+		},
+		{
+			"name": "Missing Dimension Test",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"source\": \"Bangalore\",\n  \"destination\": \"Hyderabad\",\n  \"weight\": 10,\n  \"customer\": {\n    \"customerId\": 1\n  },\n  \"payment\": {},\n  \"warehouse\": {\n    \"warehouseId\": 1\n  },\n  \"trackingHistory\": {},\n  \"packageEntity\": {\n    \"fragile\": true\n  }\n}"
+				},
+				"url": "{{baseUrl}}/shipments"
+			}
+		}
+	]
+}

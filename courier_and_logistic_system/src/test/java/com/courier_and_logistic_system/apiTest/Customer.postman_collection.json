@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "customer-api-collection",
+		"name": "Customer API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"customerName\": \"Kishan Raj\",\n  \"customerEmail\": \"kishanraj@gmail.com\",\n  \"customerPhone\": \"9876543210\",\n  \"customerAddress\": \"BTM 2nd Stage, Bangalore\"\n}"
+				},
+				"url": "{{baseUrl}}/customer"
+			}
+		},
+		{
+			"name": "Get All Customers",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/customer"
+			}
+		},
+		{
+			"name": "Get Customer By ID",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/customer/1"
+			}
+		},
+		{
+			"name": "Get Customer By Email",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/customer/email/kishanraj@gmail.com"
+			}
+		},
+		{
+			"name": "Get Customer By Phone",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/customer/ccontact/9876543210"
+			}
+		},
+		{
+			"name": "Get Customers Using Pagination And Sorting",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/customer/pagination/0/5/sortby/customerName/asc"
+			}
+		},
+		{
+			"name": "Update Customer Name",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"customerName\": \"Kishan Kumar\"\n}"
+				},
+				"url": "{{baseUrl}}/customer/1"
+			}
+		},
+		{
+			"name": "Update Customer Email",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"customerEmail\": \"kishankumar@gmail.com\"\n}"
+				},
+				"url": "{{baseUrl}}/customer/1"
+			}
+		},
+		{
+			"name": "Update Customer Phone",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"customerPhone\": \"9988776655\"\n}"
+				},
+				"url": "{{baseUrl}}/customer/1"
+			}
+		},
+		{
+			"name": "Update Customer Address",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"customerAddress\": \"Whitefield, Bangalore\"\n}"
+				},
+				"url": "{{baseUrl}}/customer/1"
+			}
+		},
+		{
+			"name": "Update Multiple Fields",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"customerName\": \"Kishan Updated\",\n  \"customerEmail\": \"kishanupdated@gmail.com\",\n  \"customerPhone\": \"9123456789\",\n  \"customerAddress\": \"Electronic City, Bangalore\"\n}"
+				},
+				"url": "{{baseUrl}}/customer/1"
+			}
+		},
+		{
+			"name": "Delete Customer",
+			"request": {
+				"method": "DELETE",
+				"url": "{{baseUrl}}/customer/1"
+			}
+		},
+		{
+			"name": "Invalid Phone Test",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"customerName\": \"Invalid User\",\n  \"customerEmail\": \"invalid@gmail.com\",\n  \"customerPhone\": \"12345\",\n  \"customerAddress\": \"Bangalore\"\n}"
+				},
+				"url": "{{baseUrl}}/customer"
+			}
+		},
+		{
+			"name": "Duplicate Email Test",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"customerName\": \"Duplicate User\",\n  \"customerEmail\": \"kishanraj@gmail.com\",\n  \"customerPhone\": \"9999999999\",\n  \"customerAddress\": \"Hyderabad\"\n}"
+				},
+				"url": "{{baseUrl}}/customer"
+			}
+		},
+		{
+			"name": "Duplicate Phone Test",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"customerName\": \"Duplicate User\",\n  \"customerEmail\": \"duplicate@gmail.com\",\n  \"customerPhone\": \"9876543210\",\n  \"customerAddress\": \"Hyderabad\"\n}"
+				},
+				"url": "{{baseUrl}}/customer"
+			}
+		},
+		{
+			"name": "Empty Update Test",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"url": "{{baseUrl}}/customer/1"
+			}
+		},
+		{
+			"name": "Invalid Field Update Test",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"customerSalary\": \"50000\"\n}"
+				},
+				"url": "{{baseUrl}}/customer/1"
+			}
+		},
+		{
+			"name": "Customer Not Found Test",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/customer/99999"
+			}
+		},
+		{
+			"name": "Customer Email Not Found Test",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/customer/email/notfound@gmail.com"
+			}
+		},
+		{
+			"name": "Customer Phone Not Found Test",
+			"request": {
+				"method": "GET",
+				"url": "{{baseUrl}}/customer/ccontact/1111111111"
+			}
+		},
+		{
+			"name": "Delete Non Existing Customer",
+			"request": {
+				"method": "DELETE",
+				"url": "{{baseUrl}}/customer/99999"
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}

@@ -1,0 +1,293 @@
+{
+  "info": {
+    "_postman_id": "b9d6e8f1-payment-api-collection",
+    "name": "Payment APIs",
+    "description": "Courier and Logistic System - Payment API Test Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Payments",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/payments"
+      }
+    },
+    {
+      "name": "Get Payment By Id",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/payments/1"
+      }
+    },
+    {
+      "name": "Update Payment Status - PENDING",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"paymentStatus\": \"PENDING\"\n}"
+        },
+        "url": "{{baseUrl}}/payments/1/status"
+      }
+    },
+    {
+      "name": "Update Payment Status - COMPLETED",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"paymentStatus\": \"COMPLETED\"\n}"
+        },
+        "url": "{{baseUrl}}/payments/1/status"
+      }
+    },
+    {
+      "name": "Update Payment Status - FAILED",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"paymentStatus\": \"FAILED\"\n}"
+        },
+        "url": "{{baseUrl}}/payments/1/status"
+      }
+    },
+    {
+      "name": "Update Payment Status - REFUNDED",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"paymentStatus\": \"REFUNDED\"\n}"
+        },
+        "url": "{{baseUrl}}/payments/1/status"
+      }
+    },
+    {
+      "name": "Delete Payment",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/payments/1"
+      }
+    },
+    {
+      "name": "Payment Not Found By Id",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/payments/99999"
+      }
+    },
+    {
+      "name": "Payment Not Found For Status Update",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"paymentStatus\": \"COMPLETED\"\n}"
+        },
+        "url": "{{baseUrl}}/payments/99999/status"
+      }
+    },
+    {
+      "name": "Delete Non Existing Payment",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/payments/99999"
+      }
+    },
+    {
+      "name": "Invalid Payment Status",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"paymentStatus\": \"INVALID_STATUS\"\n}"
+        },
+        "url": "{{baseUrl}}/payments/1/status"
+      }
+    },
+    {
+      "name": "Empty Payment Status",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        },
+        "url": "{{baseUrl}}/payments/1/status"
+      }
+    },
+    {
+      "name": "Null Payment Status",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"paymentStatus\": null\n}"
+        },
+        "url": "{{baseUrl}}/payments/1/status"
+      }
+    },
+    {
+      "name": "Wrong Key Status",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"COMPLETED\"\n}"
+        },
+        "url": "{{baseUrl}}/payments/1/status"
+      }
+    },
+    {
+      "name": "Lower Case Status",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"paymentStatus\": \"completed\"\n}"
+        },
+        "url": "{{baseUrl}}/payments/1/status"
+      }
+    },
+    {
+      "name": "Mixed Case Status",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"paymentStatus\": \"Completed\"\n}"
+        },
+        "url": "{{baseUrl}}/payments/1/status"
+      }
+    },
+    {
+      "name": "Numeric Status",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"paymentStatus\": \"123\"\n}"
+        },
+        "url": "{{baseUrl}}/payments/1/status"
+      }
+    },
+    {
+      "name": "Special Character Status",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"paymentStatus\": \"@#$%\"\n}"
+        },
+        "url": "{{baseUrl}}/payments/1/status"
+      }
+    },
+    {
+      "name": "Negative Payment Id",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/payments/-1"
+      }
+    },
+    {
+      "name": "Zero Payment Id",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/payments/0"
+      }
+    },
+    {
+      "name": "Large Payment Id",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/payments/999999999"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ]
+}

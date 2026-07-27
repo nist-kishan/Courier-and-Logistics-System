@@ -1,0 +1,181 @@
+{
+  "info": {
+    "_postman_id": "a7c9b1d4-5e6f-4a8b-9c1d-package-api",
+    "name": "Package APIs",
+    "description": "Courier and Logistic System - Package APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Packages",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/packages",
+          "host": ["{{baseUrl}}"],
+          "path": ["packages"]
+        }
+      }
+    },
+    {
+      "name": "Get Package By Id",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/packages/1",
+          "host": ["{{baseUrl}}"],
+          "path": ["packages", "1"]
+        }
+      }
+    },
+    {
+      "name": "Get Package By Type - DOCUMENT",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/packages/type/DOCUMENT",
+          "host": ["{{baseUrl}}"],
+          "path": ["packages", "type", "DOCUMENT"]
+        }
+      }
+    },
+    {
+      "name": "Get Package By Type - FRAGILE",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/packages/type/FRAGILE",
+          "host": ["{{baseUrl}}"],
+          "path": ["packages", "type", "FRAGILE"]
+        }
+      }
+    },
+    {
+      "name": "Get Package By Type - ELECTRONICS",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/packages/type/ELECTRONICS",
+          "host": ["{{baseUrl}}"],
+          "path": ["packages", "type", "ELECTRONICS"]
+        }
+      }
+    },
+    {
+      "name": "Get Package By Type - CLOTHING",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/packages/type/CLOTHING",
+          "host": ["{{baseUrl}}"],
+          "path": ["packages", "type", "CLOTHING"]
+        }
+      }
+    },
+    {
+      "name": "Get Package By Type - FOOD",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/packages/type/FOOD",
+          "host": ["{{baseUrl}}"],
+          "path": ["packages", "type", "FOOD"]
+        }
+      }
+    },
+    {
+      "name": "Package Not Found By Id",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/packages/99999",
+          "host": ["{{baseUrl}}"],
+          "path": ["packages", "99999"]
+        }
+      }
+    },
+    {
+      "name": "Invalid Package Type",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/packages/type/INVALID_TYPE",
+          "host": ["{{baseUrl}}"],
+          "path": ["packages", "type", "INVALID_TYPE"]
+        }
+      }
+    },
+    {
+      "name": "Lower Case Package Type",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/packages/type/document",
+          "host": ["{{baseUrl}}"],
+          "path": ["packages", "type", "document"]
+        }
+      }
+    },
+    {
+      "name": "Mixed Case Package Type",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/packages/type/Document",
+          "host": ["{{baseUrl}}"],
+          "path": ["packages", "type", "Document"]
+        }
+      }
+    },
+    {
+      "name": "Special Character Package Type",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/packages/type/%40%23%24%25",
+          "host": ["{{baseUrl}}"],
+          "path": ["packages", "type", "%40%23%24%25"]
+        }
+      }
+    },
+    {
+      "name": "Negative Package Id",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/packages/-1",
+          "host": ["{{baseUrl}}"],
+          "path": ["packages", "-1"]
+        }
+      }
+    },
+    {
+      "name": "Zero Package Id",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/packages/0",
+          "host": ["{{baseUrl}}"],
+          "path": ["packages", "0"]
+        }
+      }
+    },
+    {
+      "name": "Large Package Id",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/packages/999999999",
+          "host": ["{{baseUrl}}"],
+          "path": ["packages", "999999999"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ]
+}

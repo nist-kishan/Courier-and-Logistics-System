@@ -1,0 +1,160 @@
+{
+  "info": {
+    "name": "Delivery Agent APIs",
+    "_postman_id": "c3c6c7a0-8f5f-4c12-9d5e-deliveryagent",
+    "description": "Courier and Logistic System - Delivery Agent APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Delivery Agent",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"deliveryAgentName\": \"Rahul Kumar\",\n  \"deliveryAgentContactNumber\": \"9876543210\",\n  \"vehicleNumber\": \"KA01AB1234\",\n  \"availability\": true,\n  \"rating\": 5\n}"
+        },
+        "url": "{{baseUrl}}/delivery-agents"
+      }
+    },
+    {
+      "name": "Get All Delivery Agents",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/delivery-agents"
+      }
+    },
+    {
+      "name": "Get Delivery Agent By Id",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/delivery-agents/1"
+      }
+    },
+    {
+      "name": "Get Delivery Agent By Vehicle Number",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/delivery-agents/vehicle/KA01AB1234"
+      }
+    },
+    {
+      "name": "Get Delivery Agent By Contact Number",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/delivery-agents/contact/9876543210"
+      }
+    },
+    {
+      "name": "Get Delivery Agents By Rating",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/delivery-agents/rating/4"
+      }
+    },
+    {
+      "name": "Update Delivery Agent Name",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"deliveryAgentName\": \"Rahul Sharma\"\n}"
+        },
+        "url": "{{baseUrl}}/delivery-agents/1"
+      }
+    },
+    {
+      "name": "Update Contact Number",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"deliveryAgentContactNumber\": \"9988776655\"\n}"
+        },
+        "url": "{{baseUrl}}/delivery-agents/1"
+      }
+    },
+    {
+      "name": "Update Vehicle Number",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"vehicleNumber\": \"KA05XY9876\"\n}"
+        },
+        "url": "{{baseUrl}}/delivery-agents/1"
+      }
+    },
+    {
+      "name": "Update Rating",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"rating\": \"4\"\n}"
+        },
+        "url": "{{baseUrl}}/delivery-agents/1"
+      }
+    },
+    {
+      "name": "Update Availability",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"availability\": \"false\"\n}"
+        },
+        "url": "{{baseUrl}}/delivery-agents/1/availability"
+      }
+    },
+    {
+      "name": "Delete Delivery Agent",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/delivery-agents/1"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ]
+}
