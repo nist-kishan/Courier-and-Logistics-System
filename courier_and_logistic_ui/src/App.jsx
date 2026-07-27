@@ -45,10 +45,10 @@ export default function App() {
   // Auth render guard removed
 
   return (
-    <div className="min-h-screen bg-slate-950 flex text-slate-100 antialiased font-sans">
+    <div className="h-screen overflow-hidden bg-slate-950 flex text-slate-100 antialiased font-sans">
       
       {/* Sidebar Navigation */}
-      <aside className={`${isSidebarCollapsed ? 'w-20' : 'w-64'} bg-slate-900/40 backdrop-blur-md border-r border-slate-900 hidden lg:flex flex-col z-20 transition-all duration-300`}>
+      <aside className={`${isSidebarCollapsed ? 'w-20' : 'w-64'} bg-slate-900/40 backdrop-blur-md border-r border-slate-900 hidden lg:flex flex-col z-20 transition-all duration-300 h-full flex-shrink-0`}>
         <div className="h-16 flex items-center justify-between px-4 border-b border-slate-900/60">
           <div className="flex items-center gap-3 overflow-hidden">
             <div className="p-2 rounded-xl bg-indigo-600/10 text-indigo-400 border border-indigo-500/20 flex-shrink-0">
@@ -96,7 +96,7 @@ export default function App() {
       </aside>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
+      <div className="flex-1 flex flex-col min-w-0 overflow-y-auto h-full">
         
         {/* Top Header Navbar */}
         <header className="h-16 bg-slate-950/60 backdrop-blur-md border-b border-slate-900/60 px-6 flex items-center justify-between z-10 sticky top-0">
